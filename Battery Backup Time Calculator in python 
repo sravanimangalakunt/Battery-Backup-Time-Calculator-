@@ -1,0 +1,28 @@
+# Battery Backup Time Calculator
+
+print("Battery Backup Time Calculator")
+
+battery_voltage = float(input("Enter battery voltage (V): "))
+battery_capacity = float(input("Enter battery capacity (Ah): "))
+load_power = float(input("Enter load power (W): "))
+efficiency = float(input("Enter system efficiency (%): "))
+
+if battery_voltage > 0 and battery_capacity > 0 and load_power > 0 and 0 < efficiency <= 100:
+
+    # Battery energy in Wh
+    battery_energy = battery_voltage * battery_capacity
+
+    # Usable energy
+    usable_energy = battery_energy * (efficiency / 100)
+
+    # Backup time in hours
+    backup_time = usable_energy / load_power
+
+    print("\n--- Results ---")
+    print("Battery Energy =", round(battery_energy, 2), "Wh")
+    print("Usable Energy =", round(usable_energy, 2), "Wh")
+    print("Backup Time =", round(backup_time, 2), "hours")
+    print("Backup Time =", round(backup_time * 60, 2), "minutes")
+
+else:
+    print("Please enter valid values.")
